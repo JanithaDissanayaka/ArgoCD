@@ -14,21 +14,23 @@ spec:
       labels:
         app: web
     spec:
+      imagePullSecrets:
+        - name: dockercred
       containers:
         - name: web
-          image: janithadissanayaka/learn:tagname
+          image: janithadissanayaka/learn:carsale-1.2.0
           ports:
-            - containerPort: 80
+            - containerPort: 3000
           env:
-            - name: MONGO_URL
+            - name: MONGODB_URI
               valueFrom:
-                configMapKeyRef:          
+                configMapKeyRef:
                   name: mongodb-configmap
                   key: database_url
 ---
 apiVersion: v1
 kind: Service
-metadata:     
+metadata:
   name: web-service
 spec:
   selector:
@@ -37,4 +39,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 3000
