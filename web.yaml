@@ -18,7 +18,7 @@ spec:
         - name: dockercred
       containers:
         - name: web
-          image: janithadissanayaka/learn:carsale-1.2.0
+          image: janithadissanayaka/learn:carsale-1.2.5
           ports:
             - containerPort: 3000
           env:
