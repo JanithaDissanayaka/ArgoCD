@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mongodb
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: mongodb
@@ -30,7 +30,14 @@ spec:
                 secretKeyRef:
                   name: mongodb-secret
                   key: mongo-root-password
-                  
+          volumeMounts:
+            - name: mongodb-storage
+              mountPath: /data/db
+      volumes:
+        - name: mongodb-storage
+          persistentVolumeClaim:
+            claimName: mongodb-pvc
+
 ---
 
 apiVersion: v1
@@ -44,5 +51,3 @@ spec:
     - protocol: TCP
       port: 27017
       targetPort: 27017
-
-
