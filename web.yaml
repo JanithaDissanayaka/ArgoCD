@@ -14,8 +14,6 @@ spec:
       labels:
         app: web
     spec:
-      imagePullSecrets:
-        - name: dockercred
       containers:
         - name: web
           image: janithadissanayaka/learn:carsale-1.2.6
