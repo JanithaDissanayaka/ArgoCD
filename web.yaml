@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: janithadissanayaka/learn:carsale-1.2.6
+          image: <your-docker-username>/<your-repo>:<version-tag>
           ports:
             - containerPort: 3000
           env:
