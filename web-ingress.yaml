@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: web-ingress
 spec:
-  ingressClassName: nginx   # 🔥 REQUIRED
+  ingressClassName: nginx
 
   rules:
-    - http:   # 👈 remove host for now
+    - http:
         paths:
           - path: /
             pathType: Prefix
